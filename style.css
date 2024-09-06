@@ -1,0 +1,78 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: "Gill Sans", sans-serif;
+    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media(max-width : 500px) {
+        div.outer-box{
+            width: 200px;
+        }
+        div button{
+            width: 150px;
+        }
+        .satyendra-text img{
+            width: 50px ;
+            height: 50px;
+        }
+    }
+    @media (max-width : 200px) {
+        body{
+            width: 200px;
+        }
+    }
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div button{
+    height: 50px;
+    width: 30vw;
+    margin-bottom: 1rem;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius:5px;
+    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
+    
+}
+.file-text{
+    text-decoration: none;
+}
+div button:hover{
+    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
+    font-weight: 800;
+}
+.outer-box{
+    width: 40vw;
+    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
+    padding: 2rem;
+}
+.satyendra-text{
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.satyendra-text img{
+    width:10% ;
+    height:10%;
+}
+.second-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img.circular {
+    border-radius: 50%; 
+}
+a{
+    text-decoration: none;
+}
