@@ -4,7 +4,7 @@ body{
     margin: 0;
     height: 100vh;
     font-family: "Gill Sans", sans-serif;
-    background: -webkit-linear-gradient(225deg, rbg(132, 0, 255) 0%, rbg(230, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,19 +39,19 @@ div button{
     font-size: 15px;
     font-weight: bold;
     border-radius:5px;
-    background: -webkit-linear-gradient(225deg, rbg(132, 0, 255) 0%, rbg(230, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
     
 }
 .file-text{
     text-decoration: none;
 }
 div button:hover{
-    background: -webkit-linear-gradient(225deg, rbg(230, 0, 255) 0%, rbg(132, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
     font-weight: 800;
 }
 .outer-box{
     width: 40vw;
-    background: -webkit-linear-gradient(225deg, rbg(230, 0, 255) 0%, rbg(132, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
     padding: 2rem;
 }
 .satyendra-text{
