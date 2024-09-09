@@ -15,8 +15,8 @@ body{
             width: 150px;
         }
         .raushan-text img{
-            width: 50px ;
-            height: 50px;
+            width: 100px ;
+            height: 100px;
         }
     }
     @media (max-width : 200px) {
@@ -34,10 +34,10 @@ body{
 div button{
     height: 40px;
     width: 25vw;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-size: 15px;
-    font-weight: bold;
-    border-radius:30px;
+    font-weight: ;
+    border-radius:20px;
     background: -webkit-linear-gradient(225deg, rgb(2, 0, 255) 0%, rgb(230, 0, 105) 100%);
     
 }
@@ -51,7 +51,7 @@ div button:hover{
 .outer-box{
     width: auto;
     background: -webkit-linear-gradient(505deg, rgb(30, 0, 255) 0%, rgb(132, 0, 60) 100%);
-    padding: 2rem;
+    padding: 3rem;
 }
 .raushan-text{
     font-weight: bold;
