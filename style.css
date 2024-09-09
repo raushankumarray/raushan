@@ -1,7 +1,7 @@
 body{
     padding: 0;
     margin: 0;
-    height: 100vh;
+    height: ;
     font-family: "Gill Sans", sans-serif;
     background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
     display: flex;
@@ -32,25 +32,25 @@ body{
     flex-direction: column;
 }
 div button{
-    height: 50px;
-    width: 30vw;
-    margin-bottom: 1rem;
+    height: 40px;
+    width: 25vw;
+    margin-bottom: 0.5rem;
     font-size: 15px;
     font-weight: bold;
-    border-radius:5px;
-    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
+    border-radius:30px;
+    background: -webkit-linear-gradient(225deg, rgb(2, 0, 255) 0%, rgb(230, 0, 105) 100%);
     
 }
 .file-text{
     text-decoration: none;
 }
 div button:hover{
-    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(230, 0, 25) 0%, rgb(132, 0, 500) 100%);
     font-weight: 800;
 }
 .outer-box{
-    width: 40vw;
-    background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
+    width: auto;
+    background: -webkit-linear-gradient(505deg, rgb(30, 0, 255) 0%, rgb(132, 0, 60) 100%);
     padding: 2rem;
 }
 .raushan-text{
