@@ -15,7 +15,7 @@ body{
         div button{
             width: 150px;
         }
-        .satyendra-text img{
+        .raushan-text img{
             width: 50px ;
             height: 50px;
         }
@@ -54,14 +54,14 @@ div button:hover{
     background: -webkit-linear-gradient(225deg, rgb(230, 0, 255) 0%, rgb(132, 0, 255) 100%);
     padding: 2rem;
 }
-.satyendra-text{
+.raushan-text{
     font-weight: bold;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.satyendra-text img{
+.raushan-text img{
     width:10% ;
     height:10%;
 }
