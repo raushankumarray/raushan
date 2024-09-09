@@ -3,7 +3,7 @@ body{
     margin: 0;
     height: 100vh;
     font-family: "Gill Sans", sans-serif;
-    background: -webkit-linear-gradient(225deg, rgb(232, 0, 255) 0%, rgb(200, 0, 255) 100%);
+    background: -webkit-linear-gradient(225deg, rgb(132, 0, 255) 0%, rgb(230, 0, 255) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
