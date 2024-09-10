@@ -75,3 +75,11 @@ img.circular {
 a{
     text-decoration: none;
 }
+.inner-box{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(230deg, rgb(900, 0, 40) 0%, rgb(82, 0, 60) 100%);
+    padding: rem;
+}
