@@ -11,7 +11,9 @@
             --secondary-color: #8f94fb;
             --text-color: #333;
             --bg-color: #ffffff;
-            --nav-bg: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --main-bg-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --main-bg-dark: linear-gradient(135deg, #1a1a1a 0%, #434343 100%);
         }
 
         [data-theme="dark"] {
@@ -19,7 +21,7 @@
             --secondary-color: #4e54c8;
             --text-color: #ffffff;
             --bg-color: #1a1a1a;
-            --nav-bg: rgba(0, 0, 0, 0.2);
+            --nav-bg: rgba(255, 255, 255, 0.9);
         }
 
         body {
@@ -31,7 +33,7 @@
         /* Updated Navbar styles */
         .navbar {
             background: var(--nav-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             animation: navbarFade 0.5s ease-in-out;
         }
 
@@ -301,7 +303,12 @@
         .main-section {
             min-height: 100vh;
             padding: 120px 2rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--main-bg-light);
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .main-section {
+            background: var(--main-bg-dark);
         }
 
         /* Cards container */
@@ -397,26 +404,46 @@
 
             .cards-container {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            .card {
+                gap: 1.5rem;
                 padding: 1.5rem;
             }
 
+            .card {
+                padding: 1.2rem;
+                min-height: 140px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
             .card i {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .card h3 {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .cards-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                padding: 0.8rem;
+            }
+
+            .card {
+                padding: 1rem;
+                min-height: 120px;
+            }
+
+            .card i {
+                font-size: 1.8rem;
+            }
+
+            .card h3 {
+                font-size: 0.8rem;
             }
         }
 
@@ -441,6 +468,24 @@
         .cards-container:hover .card:not(:hover) {
             transform: scale(0.95);
             opacity: 0.7;
+        }
+
+        /* Add these new styles for better card fitting */
+        .card-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        /* Optimize main section padding for mobile */
+        @media (max-width: 768px) {
+            .main-section {
+                padding: 80px 0.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -527,33 +572,43 @@
     </main>
 
     <script>
-        // Updated theme switch functionality
         const themeSwitch = document.getElementById('themeSwitch');
         const switchHandle = themeSwitch.querySelector('.switch-handle');
         const switchIcon = switchHandle.querySelector('i');
+        const mainSection = document.querySelector('.main-section');
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
 
+        // Theme switch functionality
         themeSwitch.addEventListener('click', () => {
-            document.body.dataset.theme = 
-                document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-            
+            const isDark = document.body.dataset.theme === 'dark';
+            document.body.dataset.theme = isDark ? 'light' : 'dark';
             switchIcon.classList.toggle('fa-sun');
             switchIcon.classList.toggle('fa-moon');
         });
 
-        // Hamburger menu functionality
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-
+        // Updated hamburger menu functionality
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navLinks.classList.toggle("active");
+            mainSection.classList.toggle("menu-active");
         });
 
-        // Close menu when clicking a link
+        // Close menu and show main section when clicking a link
         document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navLinks.classList.remove("active");
+            mainSection.classList.remove("menu-active");
         }));
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('active')) {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+                mainSection.classList.remove("menu-active");
+            }
+        });
     </script>
 </body>
 </html>
