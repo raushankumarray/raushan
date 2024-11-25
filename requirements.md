@@ -15,7 +15,7 @@
     - Dark Mode and Light Mode(Switch Button)
 
 
-###Technologies
+###TechnologiesI
     - HTML
     - CSS
     - JavaScript
