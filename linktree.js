@@ -66,23 +66,57 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navLinks = document.getElementById('nav-links');
 
 mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
     navLinks.classList.toggle('active');
+    
     const icon = mobileMenuBtn.querySelector('i');
     if (navLinks.classList.contains('active')) {
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
+        
+        // Animate each link separately
+        const links = navLinks.querySelectorAll('a');
+        links.forEach((link, index) => {
+            link.style.animation = `fadeIn 0.3s ease forwards ${index * 0.1}s`;
+        });
     } else {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
+        
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.style.animation = '';
+        });
     }
 });
 
-// Close mobile menu when clicking outside
+// Enhanced click outside handling
 document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+        mobileMenuBtn.classList.remove('active');
         navLinks.classList.remove('active');
+        
         const icon = mobileMenuBtn.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
+        
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.style.animation = '';
+        });
     }
+});
+
+// Add smooth color transition for menu items
+const menuLinks = document.querySelectorAll('.nav-links a');
+menuLinks.forEach(link => {
+    link.addEventListener('mouseover', () => {
+        link.style.transition = 'color 0.3s ease';
+        const randomColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+        link.style.color = randomColor;
+    });
+    
+    link.addEventListener('mouseout', () => {
+        link.style.color = '';
+    });
 });
