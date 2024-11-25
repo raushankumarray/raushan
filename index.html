@@ -488,6 +488,113 @@
                 padding: 80px 0.5rem 1rem;
             }
         }
+
+        /* Mobile Footer Navigation - Updated Styles */
+        .mobile-footer {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .footer-item {
+            position: relative;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .footer-item i {
+            font-size: 1.3rem;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        /* Active and hover states */
+        .footer-item.active .footer-icon {
+            background: linear-gradient(145deg, #4e54c8, #8f94fb);
+            box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        .footer-item.active i {
+            color: white;
+        }
+
+        .footer-item:hover .footer-icon {
+            transform: translateY(-5px);
+        }
+
+        /* Individual button colors on active state */
+        .footer-item[href="#home"].active .footer-icon {
+            background: linear-gradient(145deg, #ff6b6b, #ff8e53);
+        }
+
+        .footer-item[href="#about"].active .footer-icon {
+            background: linear-gradient(145deg, #4e54c8, #8f94fb);
+        }
+
+        .footer-item[href="#contact"].active .footer-icon {
+            background: linear-gradient(145deg, #00b09b, #96c93d);
+        }
+
+        .footer-item[href^="mailto"].active .footer-icon {
+            background: linear-gradient(145deg, #834d9b, #d04ed6);
+        }
+
+        /* Ripple effect on click */
+        .footer-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s ease;
+        }
+
+        .footer-item:active .footer-icon::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-footer {
+                display: flex;
+            }
+
+            /* Add padding to main section to account for footer */
+            .main-section {
+                padding-bottom: 90px;
+            }
+
+            /* Hide corresponding navbar items */
+            .nav-links a[href="#home"],
+            .nav-links a[href="#about"],
+            .nav-links a[href="#contact"] {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -572,6 +679,29 @@
         </div>
     </main>
 
+    <div class="mobile-footer">
+        <a href="#home" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-home"></i>
+            </div>
+        </a>
+        <a href="#about" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </a>
+        <a href="#contact" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+        </a>
+        <a href="mailto:your.email@example.com" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+        </a>
+    </div>
+
     <script>
         const themeSwitch = document.getElementById('themeSwitch');
         const switchHandle = themeSwitch.querySelector('.switch-handle');
@@ -579,6 +709,7 @@
         const mainSection = document.querySelector('.main-section');
         const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".nav-links");
+        const footerItems = document.querySelectorAll('.footer-item');
 
         // Theme switch functionality
         themeSwitch.addEventListener('click', () => {
@@ -610,6 +741,48 @@
                 mainSection.classList.remove("menu-active");
             }
         });
+
+        // Set initial active state based on current section
+        function setActiveFooterItem() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop - windowHeight/2 && 
+                    scrollPosition < sectionTop + sectionHeight - windowHeight/2) {
+                    footerItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${section.id}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Handle click events
+        footerItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                footerItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Add ripple effect
+                const icon = item.querySelector('.footer-icon');
+                icon.style.animation = 'none';
+                icon.offsetHeight; // Trigger reflow
+                icon.style.animation = 'ripple 0.6s ease';
+            });
+        });
+
+        // Update active state on scroll
+        window.addEventListener('scroll', setActiveFooterItem);
+        
+        // Set initial active state
+        setActiveFooterItem();
     </script>
 </body>
 </html>
