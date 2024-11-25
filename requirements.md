@@ -56,6 +56,7 @@
                     - Portfolio
                     - GitHub
                     - Resume
+                    - Contact
                 If user click on the card then it will open in new tab.
                 and also add some animation in the card and the card should be responsive. When It is in mobile view then the card should be in 2/2/2 format. and when it is in desktop view then the card should be in 3/3/3 format.
                     
