@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raushan Kumar Ray's Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --section-bg: #f8f9fa;
+            --a4-width: 210mm;
+            --a4-height: 297mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .resume-container {
+            width: var(--a4-width);
+            height: var(--a4-height);
+            margin: 20px auto;
+            padding: 15mm;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Styles */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .name {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .title {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--section-bg);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Education Styles */
+        .education-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+        }
+
+        /* Project Styles */
+        .project-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .project-details {
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-details {
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+        }
+
+        /* Print Styles */
+        @media print {
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm;
+                height: 297mm;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* A4 size specifications */
+        :root {
+            --a4-width: 210mm;
+            --a4-height: 297mm;
+        }
+
+        body {
+            background: #f0f2f5;
+        }
+
+        .resume-container {
+            width: var(--a4-width);
+            min-height: var(--a4-height);
+            margin: 20px auto;
+            padding: 30mm 20mm;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .view-btn {
+            background: var(--secondary-color);
+        }
+
+        .download-btn {
+            background: var(--primary-color);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Print/PDF Styles */
+        @media print {
+            body {
+                background: none;
+            }
+
+            .resume-container {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 20mm;
+                box-shadow: none;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .action-buttons {
+                display: none;
+            }
+
+            /* Ensure page breaks don't cut sections */
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                width: 100%;
+                margin: 0;
+                padding: 1rem;
+                box-shadow: none;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .action-buttons {
+                bottom: 1rem;
+                right: 1rem;
+                flex-direction: column;
+            }
+
+            .action-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Update list styles for better space usage */
+        ul {
+            margin: 0.3rem 0;
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="resume-header">
+            <h1 class="name">Raushan Kumar Ray</h1>
+            <p class="title">Software Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:raushankumarray96@gmail.com">raushankumarray96@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>8877300114</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bengaluru, Karnataka, India</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://raushankumarray.github.io/raushan" target="_blank">Portfolio</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>Dedicated and adaptable software developer with a strong foundation in computer science principles. Eager to contribute to innovative projects and collaborate effectively in team environments.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3 class="education-title">Bachelor of Technology in Electronics and Communication Engineering</h3>
+                <div class="education-details">
+                    <span>Technocrat Institute of Technology</span>
+                    <span>2019-2023</span>
+                </div>
+                <p>CGPA: 8.54</p>
+                <p>Location: Bhopal, Madhya Pradesh, India</p>
+            </div>
+
+            <div class="education-item">
+                <h3 class="education-title">Intermediate</h3>
+                <div class="education-details">
+                    <span>S.N.N.R COLLEGE</span>
+                    <span>2017-2019</span>
+                </div>
+                <p>Percentage: 62%</p>
+                <p>Location: Begusarai, Bihar, India</p>
+            </div>
+
+            <div class="education-item">
+                <h3 class="education-title">Matriculation</h3>
+                <div class="education-details">
+                    <span>P.C High School</span>
+                    <span>2016-2017</span>
+                </div>
+                <p>Percentage: 89.3%</p>
+                <p>Location: Samastipur, Bihar</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <h3 class="experience-title">Graduate Apprentice</h3>
+                <div class="experience-details">
+                    <span>Powergrid Corporation of India Limited</span>
+                    <span>27 Sep 2023 - 26 Sep 2024</span>
+                </div>
+                <p>Location: Patna, Bihar, India</p>
+                <ul>
+                    <li>Trained in Networking, Configuration, and Troubleshooting</li>
+                    <li>Gained hands-on experience in network infrastructure management</li>
+                    <li>Participated in system maintenance and optimization projects</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-item">
+                <h3 class="project-title">Smoke/Gas Leakage Detection System</h3>
+                <div class="project-details">
+                    <span>Nov 2022 | Bhopal</span>
+                </div>
+                <p>Developed an IoT-based system for real-time detection of smoke and gas leakages, incorporating sensors and alert mechanisms for enhanced safety measures.</p>
+            </div>
+
+            <div class="project-item">
+                <h3 class="project-title">Quad Copter Drone</h3>
+                <div class="project-details">
+                    <span>April 2023 | Bhopal</span>
+                </div>
+                <p>Designed and implemented a quad copter drone system with autonomous flight capabilities and remote control features.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <span class="skill-item">C</span>
+                <span class="skill-item">Java</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">HTML</span>
+                <span class="skill-item">CSS</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Git</span>
+                <span class="skill-item">MS Office</span>
+                <span class="skill-item">Electronics</span>
+                <span class="skill-item">Telecom</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Achievements</h2>
+            <ul>
+                <li>HackerRank 4 Star in C, Java, SQL</li>
+                <li>Google Kick Start Participant - Secured global rank 2098 in Round H 2029</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Certifications</h2>
+            <ul>
+                <li>Certified in Networking, Configuration, and Troubleshooting</li>
+                <li>Certified in Python Programming</li>
+                <li>Certified in C Programming</li>
+                <li>Certified in Java Programming</li>
+                <li>Certified in SQL</li>
+                <li>AZ-104: Prerequisites for Azure Administrator</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="skills-container">
+                <span class="skill-item">English</span>
+                <span class="skill-item">Hindi</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Soft Skills</h2>
+            <div class="skills-container">
+                <span class="skill-item">Teamwork</span>
+                <span class="skill-item">Communication</span>
+                <span class="skill-item">Problem Solving</span>
+                <span class="skill-item">Adaptability</span>
+                <span class="skill-item">Time Management</span>
+            </div>
+        </section>
+    </div>
+
+    <div class="action-buttons">
+        <a href="#" class="view-btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print Resume
+        </a>
+    </div>
+</body>
+</html> 
