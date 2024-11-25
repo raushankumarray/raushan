@@ -1,148 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Raushan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raushan Kumar Ray - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="linktree.js" class="js" defer> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
-<center>
 <body>
-    <div class='outer-box'>
-        <div class='raushan-text'>
-            <img src="dp.png" alt="me" class="circular">
-        </div>
-        <div class='raushan-text'>
-            Raushan Kumar Ray
-        </div><font color="white">
-        <div class='raushan-text'
-            style="font-size: 20px; font-weight: normal; margin-bottom: 1rem;margin-top: 5px; font-weight: 600;">
-            <span id="typing-animation"></span>
-
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Engineer  ',
-						'Telecom  ',
-						'Electronics   ',
-						'Software   ',	
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-        </div>
-	</font>
-
-
-
-
-
-
-
-
-
-
-
-
-	    
-        <div class='btn'>
-
-		<a href="https://www.linkedin.com/in/raushankray/" target="_blank">
-                <button class="second-btn">
-                    <img src="linkedin.png" alt="No" height="20px" width="20px">
-                    <span style="margin-left: 2px;">Linkedin</span>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="dp.png" alt="Profile Picture">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://linkedin.com/in/raushankray" target="_blank">LinkedIn</a>
+                <a href="https://github.com/raushankumarray" target="_blank">GitHub</a>
+            </div>
+            <div class="nav-buttons">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
                 </button>
-            </a>
-
-		<a href="" target="_blank">
-                <button class="second-btn">
-                    <img src="topmate.png" alt="No" height="20px" width="20px">
-                    <span style="margin-left: 2px;">Topmate</span>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
                 </button>
-            </a>
-		
-		<a href="https://raushankumarray.github.io/raushan_portfolio/" target="_blank">
-                <button class="second-btn">
-                    <img src="portfolio.png" alt="No" height="20px" width="20px">
-                    <span style="margin-left: 2px;">Portfolio</span>
-                </button>
-            </a>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Raushan Kumar Ray</h1>
+            <div class="typing-container">
+                <span id="typing-text"></span>
+                <span class="cursor">|</span>
+            </div>
             
-            <a href="https://www.instagram.com/rk.sbp/" target="_blank">
-                <button class="second-btn">
-                    <img src="instagram.png" alt="No" height="20px" width="20px">
-                    <span style="margin-left: 2px;">Instagram</span>
-                </button>
-            </a>
-
-            
-            <a href="https://twitter.com/raushans_co" target="_blank">
-                <button class="second-btn">
-                    <img src="twitter.png" alt="No" height="20px" width="20px">
-                    <span>Twitter</span>
-                </button>
-            </a>
-
-		
-		
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/rk.sbp" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/raushans_co" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/raushankray" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/raushankumarray" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
         </div>
-       
-        <div class='raushan-text'>
-            Thank You!
-        </div>
+    </section>
 
-        
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookie-consent">
+        <p>This website uses cookies to ensure you get the best experience.</p>
+        <button id="accept-cookies">Accept</button>
     </div>
- 
-            <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-            <div class='inner-box'>
-             <p>Follow Us </p>&emsp; <span>
-             <a href="https://www.facebook.com/profile.php?id=100010314582835&mibextid=ZbWKwL"> <img src="facebook.png" height="30px" alt="me" class="circular"></a>
-               <a href="https://www.instagram.com/rk.sbp/?igsh=MTI4YWx5MGV2b29rcA%3D%3D"><img src="instagram.png" height="30px" alt="me" class="circular"></a>
-              <a href="https://x.com/raushans_co?s=09"><img src="twitter.png" height="30px" alt="me" class="circular"></a>
-              <a href="https://wa.me/qr/D2EWQGN7O7XWL1"><img src="whatsapp.png" height="30px" alt="me" class="circular"></a>
-                <a href="https://youtube.com/@theraushans?si=iCPf8aH0ufn3TY8n"><img src="youtube.png" height="30px" alt="me" class="circular"></a>
-                  </div>
-                  
-			<div class="col-md-12 text-center">
-  <font color="white">
-			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	&copy;<script>document.write(new Date().getFullYear());</script> Raushan. All rights reserved.<br>
-      Co-Powered By NPB Media</p>
-              </font>
-			</div>
-			 
-		  </div>
-		</div>
-          
-	  </footer>  
-               
 </body>
-
 </html>
