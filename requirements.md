@@ -43,21 +43,21 @@
 
             Background Image is colourful.
             Add a picture of myself in the main section.
-            - Profile Picture (Image)
-                - dp.png in circle
-            Name mentioned as Raushan Kumar Ray below the profile picture.
-            - Profession mentioned as Software Developer below the name.
+
+            
             - Download Resume Button
             - Github Link Button
 
             Add some animation in the main section.
                 - Card Animation
-                    Inside the card, mentioned  some button are follows
+                    Create a Seprate card for each and  Card Work as a button.
                     - LinkedIn
-                    - Portfolio
                     - Topmate
-                    - X
-                    - Email
+                    - Portfolio
+                    - GitHub
+                    - Resume
+                If user click on the card then it will open in new tab.
+                and also add some animation in the card and the card should be responsive. When It is in mobile view then the card should be in 2/2/2 format. and when it is in desktop view then the card should be in 3/3/3 format.
                     
 
         - Footer

@@ -296,6 +296,151 @@
                 margin: 1rem 0;
             }
         }
+
+        /* Main section styles */
+        .main-section {
+            min-height: 100vh;
+            padding: 120px 2rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Cards container */
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Card styles */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(225deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card i {
+            font-size: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover i {
+            transform: scale(1.2);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Card specific colors */
+        .linkedin { background: linear-gradient(45deg, #0077B5, #00A0DC); }
+        .topmate { background: linear-gradient(45deg, #FF416C, #FF4B2B); }
+        .portfolio { background: linear-gradient(45deg, #11998e, #38ef7d); }
+        .github { background: linear-gradient(45deg, #24292e, #40464f); }
+        .resume { background: linear-gradient(45deg, #834d9b, #d04ed6); }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-section {
+                padding: 100px 1rem 1rem;
+            }
+
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card i {
+                font-size: 2.5rem;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card hover animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .card:hover {
+            animation: pulse 1s infinite;
+        }
+
+        /* Add floating animation */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .cards-container:hover .card:not(:hover) {
+            transform: scale(0.95);
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -333,6 +478,45 @@
             </div>
         </div>
     </nav>
+
+    <main class="main-section">
+        <div class="cards-container">
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="card linkedin">
+                <div class="card-content">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                </div>
+            </a>
+
+            <a href="https://topmate.io/yourusername" target="_blank" class="card topmate">
+                <div class="card-content">
+                    <i class="fas fa-users"></i>
+                    <h3>Topmate</h3>
+                </div>
+            </a>
+
+            <a href="#" target="_blank" class="card portfolio">
+                <div class="card-content">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Portfolio</h3>
+                </div>
+            </a>
+
+            <a href="https://github.com/yourusername" target="_blank" class="card github">
+                <div class="card-content">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                </div>
+            </a>
+
+            <a href="#" class="card resume">
+                <div class="card-content">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Resume</h3>
+                </div>
+            </a>
+        </div>
+    </main>
 
     <script>
         // Updated theme switch functionality
