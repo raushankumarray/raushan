@@ -6,73 +6,143 @@
     <title>Raushan Kumar Ray - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Reset default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.1);
         }
 
-        /* Navbar styles */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+        [data-theme="dark"] {
+            --primary-color: #8f94fb;
+            --secondary-color: #4e54c8;
+            --text-color: #ffffff;
+            --bg-color: #1a1a1a;
+            --nav-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
             transition: all 0.3s ease;
+        }
+
+        /* Updated Navbar styles */
+        .navbar {
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: navbarFade 0.5s ease-in-out;
+        }
+
+        @keyframes navbarFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
         }
 
+        .logo img:hover {
+            transform: rotate(360deg);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .nav-links a:not(.download-btn):hover {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .download-btn {
-            background: linear-gradient(45deg, #4e54c8, #8f94fb);
-            color: white !important;
-            border-radius: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .download-btn:hover {
-            background: linear-gradient(45deg, #4e54c8, #8f94fb);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        /* Updated theme switch styles */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 2rem;
         }
 
         .theme-switch {
-            width: 30px;
+            position: relative;
+            width: 60px;
             height: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border-radius: 15px;
             cursor: pointer;
-            margin-left: 2rem;
+        }
+
+        .switch-handle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .switch-handle i {
+            color: #ffd43b;
+            font-size: 14px;
+        }
+
+        [data-theme="dark"] .switch-handle {
+            transform: translateX(30px);
+        }
+
+        [data-theme="dark"] .switch-handle i {
+            color: #1a1a1a;
+        }
+
+        /* Updated download button */
+        .download-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Hamburger menu styles */
@@ -146,21 +216,31 @@
             <a href="#about">About</a>
             <a href="https://github.com/yourusername" target="_blank">GitHub</a>
             <a href="#contact">Contact</a>
-            <a href="#" class="download-btn">Download Resume</a>
-            <img src="moon.png" alt="Theme Switch" class="theme-switch" id="themeSwitch">
+            <a href="#" class="download-btn">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+            <div class="theme-switch-wrapper">
+                <div class="theme-switch" id="themeSwitch">
+                    <div class="switch-handle">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
     <script>
-        // Theme switch functionality
+        // Updated theme switch functionality
         const themeSwitch = document.getElementById('themeSwitch');
-        let isDarkMode = false;
+        const switchHandle = themeSwitch.querySelector('.switch-handle');
+        const switchIcon = switchHandle.querySelector('i');
 
         themeSwitch.addEventListener('click', () => {
-            isDarkMode = !isDarkMode;
-            themeSwitch.src = isDarkMode ? 'assets/sun.png' : 'assets/moon.png';
-            document.body.style.backgroundColor = isDarkMode ? '#1a1a1a' : '#ffffff';
-            document.body.style.color = isDarkMode ? '#ffffff' : '#333333';
+            document.body.dataset.theme = 
+                document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            
+            switchIcon.classList.toggle('fa-sun');
+            switchIcon.classList.toggle('fa-moon');
         });
 
         // Hamburger menu functionality
