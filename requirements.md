@@ -2,7 +2,7 @@
         
 
 ###Requirements
-    I am trying to create a simple Responsive Website for a Portfolio.
+    I am trying to create a Advanced Responsive Website for a Portfolio.
 
 
 ###Features
@@ -17,17 +17,16 @@
 
 ###TechnologiesI
     - HTML
-    - CSS
-    - JavaScript
+
 
 
 ###Pages
     - index.html
-        Create a simple Home Page with a Navbar Header, Main section and a Footer.
-        - Navbar Header
+        Create a Advanced Home Page with a Navbar Header, Main section and a Footer.
+        - Navbar Header (Transparent)
             - Logo (Image)
-                - dp.jpg
-            - Navbar Links (Anchor Tags)
+                - dp.
+            - Navbar Links Button (Anchor Tags button)
                 - Home
                 - About
                 - GitHub
@@ -36,10 +35,10 @@
 
 
             - Switch Button (Switch Button)
-                - Dark Mode
-                    - moon.png
+                - Dark Mode 
+
                 - Light Mode
-                    - sun.png
+                    
         - Main Section
 
             Background Image is colourful.

@@ -4,117 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raushan Kumar Ray - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:not(.download-btn):hover {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #4e54c8, #8f94fb);
+            color: white !important;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #4e54c8, #8f94fb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .theme-switch {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 2rem;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.95);
+                width: 100%;
+                height: 100vh;
+                padding-top: 80px;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="dp.jpg" alt="Logo">
-            </div>
-            
-            <div class="mobile-nav">
-                <button id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <button id="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-
-            <div class="nav-links" id="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                <a href="#contact">Contact</a>
-                <a href="path/to/resume.pdf" download class="resume-btn">
-                    <i class="fas fa-download"></i> Resume
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Section -->
-    <main>
-        <div class="hero-section">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="dp.png" alt="Raushan Kumar Ray">
-                </div>
-                <h1>Raushan Kumar Ray</h1>
-                <div class="typing-text">
-                    <span id="text"></span>
-                </div>
-                <div class="hero-buttons">
-                    <a href="path/to/resume.pdf" download class="btn primary-btn">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                    <a href="https://github.com/yourusername" target="_blank" class="btn secondary-btn">
-                        <i class="fab fa-github"></i> GitHub Profile
-                    </a>
-                </div>
-            </div>
-
-            <div class="cards-container">
-                <div class="card">
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="card-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#portfolio" class="card-link">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Portfolio</span>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://topmate.io/yourusername" target="_blank" class="card-link">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Topmate</span>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://twitter.com/yourusername" target="_blank" class="card-link">
-                        <i class="fab fa-twitter"></i>
-                        <span>X (Twitter)</span>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="mailto:your.email@example.com" class="card-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                </div>
-            </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="dp.png" alt="Logo">
         </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-content">
-            <div class="copyright">
-                <p>Copyright &copy; 2024 Raushan Kumar Ray. All rights reserved.</p>
-            </div>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://twitter.com/yourusername" target="_blank" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://instagram.com/yourusername" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://facebook.com/yourusername" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </div>
+        
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-    </footer>
 
-    <script src="linktree.js"></script>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="download-btn">Download Resume</a>
+            <img src="moon.png" alt="Theme Switch" class="theme-switch" id="themeSwitch">
+        </div>
+    </nav>
+
+    <script>
+        // Theme switch functionality
+        const themeSwitch = document.getElementById('themeSwitch');
+        let isDarkMode = false;
+
+        themeSwitch.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            themeSwitch.src = isDarkMode ? 'assets/sun.png' : 'assets/moon.png';
+            document.body.style.backgroundColor = isDarkMode ? '#1a1a1a' : '#ffffff';
+            document.body.style.color = isDarkMode ? '#ffffff' : '#333333';
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }));
+    </script>
 </body>
 </html>
