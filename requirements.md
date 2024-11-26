@@ -76,7 +76,23 @@
                 
                 If user click on the card then it will open in new tab.
                 and also add some animation in the card and the card should be responsive. When It is in mobile view then the card should be in 2/2/2 format. and when it is in desktop view then the card should be in 3/3/3 format.
-        
+        -contact.html
+            - Header and Footer is similar to index.html same style as using same css file in index.html
+            - Main Section
+                - Contact Section
+                    - Contact Details
+                        - Enter your Name
+                        - Enter your Email
+                        - Enter your Phone Number
+                        - Enter your Message
+                        - Button (Send Message) & (Clear) 
+                          Button (Send Message) will send the data to the email id raushankumarray96@gmail.com and connect the databae.
+                         In Button add some animation colur and also add some animation in the form and also add animation in the main section of contact.html. All data will be saved in the database. 
+                         IN main section all details need to be center of the page.
+
+
+
+
         -resume.html
             - Resume Section
                 - Resume View Button and Download Button
