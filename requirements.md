@@ -55,6 +55,8 @@
                     - Topmate
                     - Portfolio
                     - GitHub
+                        crete a github page and link with the card.
+                        github.html is page similar to https://github.com/raushankumarray and add some animation in the github page. annd add some animation in the card. in this page add header is similar to index.html and in this page 
                     - Resume
                     - Contact
                 If user click on the card then it will open in new tab.

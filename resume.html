@@ -328,6 +328,106 @@
             margin-bottom: 0.2rem;
             font-size: 0.9rem;
         }
+
+        /* Mobile Footer Navigation */
+        .mobile-footer {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .footer-item {
+            position: relative;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .footer-item i {
+            font-size: 1.3rem;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        /* Active and hover states */
+        .footer-item.active .footer-icon {
+            background: linear-gradient(145deg, #4e54c8, #8f94fb);
+            box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        .footer-item.active i {
+            color: white;
+        }
+
+        .footer-item:hover .footer-icon {
+            transform: translateY(-5px);
+        }
+
+        /* Update action button styles */
+        .action-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .view-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .mobile-footer {
+                display: flex;
+            }
+
+            .resume-container {
+                padding-bottom: 80px;
+            }
+
+            .action-buttons {
+                bottom: 5rem;
+            }
+
+            .view-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -487,9 +587,77 @@
     </div>
 
     <div class="action-buttons">
-        <a href="#" class="view-btn" onclick="window.print()">
-            <i class="fas fa-print"></i> Print Resume
+        <a href="#" class="view-btn" onclick="downloadA4()">
+            <i class="fas fa-download"></i> Download A4
         </a>
     </div>
+
+    <div class="mobile-footer">
+        <a href="index.html#home" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-home"></i>
+            </div>
+        </a>
+        <a href="index.html#about" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </a>
+        <a href="index.html#contact" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+        </a>
+        <a href="mailto:raushankumarray96@gmail.com" class="footer-item">
+            <div class="footer-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadA4() {
+            const element = document.querySelector('.resume-container');
+            const opt = {
+                margin: [0, 0, 0, 0],
+                filename: 'Raushan_Kumar_Ray_Resume.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait'
+                }
+            };
+
+            // Hide the buttons before generating PDF
+            const buttons = document.querySelector('.action-buttons');
+            const footer = document.querySelector('.mobile-footer');
+            buttons.style.display = 'none';
+            footer.style.display = 'none';
+
+            // Generate PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Show the buttons again after PDF is generated
+                buttons.style.display = 'flex';
+                footer.style.display = 'flex';
+            });
+        }
+
+        // Handle mobile footer active states
+        const footerItems = document.querySelectorAll('.footer-item');
+        
+        footerItems.forEach(item => {
+            item.addEventListener('click', () => {
+                footerItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html> 
