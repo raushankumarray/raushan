@@ -55,21 +55,27 @@
                     - Topmate
                     - Portfolio
                     - GitHub
+                        crete a github page and link with the card.
+                        github.html is page similar to https://github.com/raushankumarray and add some animation in the github page. annd add some animation in the card. in this page add header is similar to index.html and in this page 
                     - Resume
                     - Contact
-                     
+                        - Create a Contact page and link with the card.
+                           Header and footer is similar to index.html.
+                           In main Section add a form with the following fields:
+                           - Name (Text Box)
+                           - Email (Email Box)
+                           - Phone Number (Bhone Number Box)
+                           - Message (Long Text Box)
+                           - Send Message Button
+                           and add some animation in the form.
+                           and after click send message to send the email id raushankumarray96@gmail.com all data will be saved in the email id.
+                           All data of form in center of the page.
+                           and after send messge show a popup window to Successfully Sent Message. if not sent not sent message popup window show.
+                             
+
                 
                 If user click on the card then it will open in new tab.
                 and also add some animation in the card and the card should be responsive. When It is in mobile view then the card should be in 2/2/2 format. and when it is in desktop view then the card should be in 3/3/3 format.
-
-        below card in main section add a new section of Store and Payment
-        - Store Section
-            - Store Button
-        - Payment Section
-            - Payment Button
-        Both Button will open in new tab. and add style css design as similar of card 
-          
-        
         
         -resume.html
             - Resume Section
@@ -174,8 +180,6 @@
                     - Twitter
                     - Instagram
                     - Facebook
-
-             
 
 
 ###Backend

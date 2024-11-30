@@ -595,39 +595,6 @@
                 display: none;
             }
         }
-
-        .store-section {
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .store-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--text-color);
-        }
-
-        .cards-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        /* Responsive design for smaller screens */
-        @media (max-width: 1024px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -649,11 +616,10 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#technology">Technology</a>
-            <a href="#store">Store</a>
-            
+            <a href="https://github.com/raushankumarray" target="_blank">
+                <i class="fab fa-github"></i> GitHub
             </a>
+            <a href="#contact">Contact</a>
             <a href="resume.html" target="_blank" class="download-btn">
                 <i class="fas fa-file-alt"></i> View Resume
             </a>
@@ -711,25 +677,6 @@
                 </div>
             </a>
         </div>
-
-        <!-- New Store Section -->
-        <section class="store-section">
-            <h2>Store</h2>
-            <div class="cards-container">
-                <a href="store.html" target="_blank" class="card store">
-                    <div class="card-content">
-                        <i class="fas fa-store"></i>
-                        <h3>Visit Store</h3>
-                    </div>
-                </a>
-                <a href="payment.html" target="_blank" class="card payment">
-                    <div class="card-content">
-                        <i class="fas fa-credit-card"></i>
-                        <h3>Payment</h3>
-                    </div>
-                </a>
-            </div>
-        </section>
     </main>
 
     <div class="mobile-footer">
